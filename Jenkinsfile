@@ -44,7 +44,7 @@ pipeline {
     
         stage("Remove Docker Image") {
             steps{
-                sh 'docker rmi -f $(docker images -q)'	
+                sh 'docker image rmi -f $(docker image ls -aq)'	
                 sh 'docker logout'  
             }
         }
