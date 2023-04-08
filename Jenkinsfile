@@ -10,7 +10,7 @@ pipeline {
     
         stage("SCM Checkout"){
             steps{
-                git 'https://github.com/josiokoko/serverapp.git'
+                git branch: 'main', url: 'https://github.com/josiokoko/serverapp.git'
             }
         }
 
