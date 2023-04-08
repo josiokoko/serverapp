@@ -10,7 +10,7 @@ pipeline {
     
         stage("SCM Checkout"){
             steps{
-                git '<github repo>'
+                git 'https://github.com/josiokoko/serverapp.git'
             }
         }
 
@@ -44,16 +44,11 @@ pipeline {
     
         stage("Remove Docker Image") {
             steps{
-                sh 'docker rmi -f $(docker images -q)'	  
+                sh 'docker rmi -f $(docker images -q)'	
+                sh 'docker logout'  
             }
         }
 
-
-        post {
-            always {
-                sh 'docker logout'
-            }
-        }
            
     }
 }
